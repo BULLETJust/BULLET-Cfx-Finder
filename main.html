@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BULLET Cfx Finder</title>
+  <link rel="icon" href="https://i.ibb.co/v4YX1R9r/3fb513e78a4e5d5d8f674bf123758981-removebg-preview.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 20px;
+      background-color: #2e351a;
+    }
+    .home-link img {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: block;
+    }
+    .join-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .join-btn:hover {
+      background-color: #218838;
+    }
+    main {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .header-image {
+      max-width: 150px;
+      margin: 0 auto 15px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://guns.lol/xbullet" class="home-link" title="BULLET">
+      <img src="https://i.ibb.co/v4YX1R9r/3fb513e78a4e5d5d8f674bf123758981-removebg-preview.png" alt="BULLET" />
+    </a>
+    <a href="https://discord.gg/3QRVgGvPwg" class="join-btn" target="_blank">Join NajmaShop !</a>
+  </header>
+
+  <main>
+    <img src="https://i.ibb.co/v4YX1R9r/3fb513e78a4e5d5d8f674bf123758981-removebg-preview.png" alt="Banner" class="header-image" />
+    <h1>BULLET Cfx Finder</h1>
+    <div class="input-container">
+      <input type="text" id="cfxUrl" placeholder="Enter CFX link (cfx.re/join/anycode)" />
+      <button onclick="getServerIP()">Find IP</button>
+    </div>
+    <div class="info-box" id="result">Enter The Cfx Code To Show Info...</div>
+    <div class="ip-details-box"></div>
+
+    <div id="customPopup">
+      <p>📎 You've Used The Finder 3 Times Today. Please Join our Discord To Continue</p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+
+    <div class="links">
+      <a id="playersLink" target="_blank">Players JSON</a>
+      <a id="infoLink" target="_blank">Server Info</a>
+      <button id="moreInfoBtn" onclick="showMoreInfo()">Show More Info</button>
+    </div>
+
+    <div id="moreInfoPopup" class="popup">
+      <div class="popup-content">
+        <h2>Server Details</h2>
+        <div id="playersList"></div>
+        <div id="resourcesList"></div>
+        <button class="close-btn" onclick="closeMoreInfo()">Close</button>
+      </div>
+    </div>
+  </main>
+
+<script>
+  function showNotify(message) {
+    const notify = document.createElement('div');
+    notify.className = 'notify';
+    notify.innerHTML = `
+      <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Warning Icon">
+      ${message}
+    `;
+    document.body.appendChild(notify);
+
+    setTimeout(() => {
+      notify.style.animation = 'fadeOut 0.5s forwards';
+      setTimeout(() => notify.remove(), 500);
+    }, 4000);
+  }
+
+  
+  document.addEventListener('keydown', function (e) {
+    if (
+      e.keyCode === 123 || // F12
+      (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) || // Ctrl+Shift+I / J
+      (e.ctrlKey && e.keyCode === 85) // Ctrl+U
+    ) {
+      e.preventDefault();
+      showNotify("Don't Do These Things On My Site !");
+      return false;
+    }
+  });
+
+
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    showNotify("Don't Do These Things On My Site !");
+  });
+</script>
+  <script src="script.js"></script>
+</body>
+</html>
