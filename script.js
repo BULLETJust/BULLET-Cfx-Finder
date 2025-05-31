@@ -1,4 +1,4 @@
-const ipApiBaseUrl = 'http://ip-api.com/json';
+const ipApiBaseUrl = 'https://ip-api.com/json';
 let searchCount = parseInt(localStorage.getItem('searchCount') || "0");
 let lastPopupTime = localStorage.getItem('lastPopupTime');
 const currentTime = Date.now();
