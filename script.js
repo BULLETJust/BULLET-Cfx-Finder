@@ -47,8 +47,8 @@ async function getServerIP() {
       lastIPPort = ip;
     }
 
-    document.getElementById('playersLink').href = `http://${ip}/players.json`;
-    document.getElementById('infoLink').href = `http://${ip}/dynamic.json`;
+    document.getElementById('playersLink').href = `https://${ip}/players.json`;
+    document.getElementById('infoLink').href = `https://${ip}/dynamic.json`;
     lastIPPort = ip; 
 
 
